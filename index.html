@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <section>
+        <div class="container-2xl mx-auto relative">
+            <div class="bgtop rounded-full h-[300px] w-[300px] absolute left-[-100px] top-[-150px]"></div>
+            <div class="bgtop rounded-full h-[300px] w-[300px] absolute right-[-90px] bottom-[-180px]"></div>
+
+            <div class="clac1 bg-[#ffffdd] pb-[20px] w-[400px] mx-auto mt-[50px] rounded-[20px]">
+
+                <div class="calc2 bg-[#fff0d2] border-black border-b-4 border-black h-[140px] rounded-t-[20px]">
+                    <div class="inputclass">
+                        <input type="text"
+                            class="input bg-[transparent] px-10 py-11 font-semibold text-2xl mx-auto text-right"
+                            size="25">
+                    </div>
+                </div>
+                <div class="btngrup1 px-[20px] pb-[10px] pt-[30px] flex justify-between items-center">
+                    <button id="c" class="h-[70px] w-[70px] bg-[#fee2a9] rounded-[10px] font-bold text-2xl">C</button>
+                    <button id="bracket"
+                        class="h-[70px] w-[70px] bg-[#fee2a9] rounded-[10px] font-bold text-2xl">()</button>
+                    <button id="mod" class="h-[70px] w-[70px] bg-[#fee2a9] rounded-[10px] font-bold text-2xl">%</button>
+                    <button id="div" class="h-[70px] w-[70px] bg-[#f1af60] rounded-[10px] font-bold text-2xl">/</button>
+                </div>
+                <div class="btngrup2 px-[20px] py-[10px]   flex justify-between items-center">
+                    <button id="7" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">7</button>
+                    <button id="8" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">8</button>
+                    <button id="9" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">9</button>
+                    <button id="multi"
+                        class="h-[70px] w-[70px] bg-[#f1af60] rounded-[10px] font-bold text-2xl">*</button>
+                </div>
+                <div class="btngrup3 px-[20px] py-[10px]   flex justify-between items-center">
+                    <button id="4" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">4</button>
+                    <button id="5" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">5</button>
+                    <button id="6" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">6</button>
+                    <button id="min" class="h-[70px] w-[70px] bg-[#f1af60] rounded-[10px] font-bold text-2xl">-</button>
+                </div>
+                <div class="btngrup4 px-[20px] py-[10px]   flex justify-between items-center">
+                    <button id="1" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">1</button>
+                    <button id="2" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">2</button>
+                    <button id="3" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">3</button>
+                    <button id="plus"
+                        class="h-[70px] w-[70px] bg-[#f1af60] rounded-[10px] font-bold text-2xl">+</button>
+                </div>
+                <div class="btngrup5 px-[20px] py-[10px]   flex justify-between items-center">
+                    <button id="0" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">0</button>
+                    <button id="00" class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">00</button>
+                    <button id="." class="h-[70px] w-[70px] bg-[#f5ce9f] rounded-[10px] font-bold text-2xl">.</button>
+                    <button id="ans" class="h-[70px] w-[70px] bg-[#f1af60] rounded-[10px] font-bold text-2xl">=</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let string = "";
+        let buttons = document.querySelectorAll("button");
+        Array.from(buttons).forEach((button) => {
+            button.addEventListener('click', (e) => {
+                if (e.target.innerHTML == "=") {
+                    string = eval(string);
+                    document.querySelector('input').value = string;
+                }
+                else if (e.target.innerHTML == "C") {
+                    string = "";
+                    document.querySelector('input').value = string;
+                }
+                else {
+                    console.log(e.target);
+                    string = string + e.target.innerHTML;
+                    document.querySelector('input').value = string;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
